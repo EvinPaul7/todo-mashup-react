@@ -3,11 +3,21 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Router from './Router';
+import {RouterProvider} from 'react-router-dom'
+import store from './store/store';
+import { Provider } from 'react-redux';
+import AutoLogin from './components/auth/AutoLogin';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>   
+    <AutoLogin>
+    <RouterProvider router={Router}/>
+    </AutoLogin>
+    </Provider>
   </React.StrictMode>
 );
 

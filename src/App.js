@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import Listcontainer from './components/Listcontainer.js'
+import { useState } from 'react';
+import Addtodolist from './components/Addtodolist.js';
+import Navbar from './components/Navbar.js';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+function App(){
+  const [state,setState]=useState({
+    todos:[{ id: 1, title: "My first state", completed: false },
+    { id: 2, title: "My second state", completed: false },
+    { id: 3, title: "My third state", completed: false },
+    { id: 4, title: "My fourth state", completed: false },
+    { id: 5, title: "My fifth state", completed: false },
+  ]
+  });
+
+  
+
+  
+  return(
+    <div>
+       <Navbar></Navbar>
+    <div className='container'>
+      <Listcontainer/>
+      <Addtodolist/>        
+    </div>
     </div>
   );
-}
+  }
 
 export default App;
